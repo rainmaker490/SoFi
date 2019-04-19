@@ -24,8 +24,8 @@ class ImgurSearchFactory: NSObject {
             if let newValue = newValue, newValue != imgurSearchQuery {
                 pageNumber = 0
                 searchResults.removeAll()
-                delegate?.newSearchResultsAvailable()
                 cache.removeAll()
+                delegate?.newSearchResultsAvailable()
             }
         }
         
@@ -45,10 +45,10 @@ class ImgurSearchFactory: NSObject {
 //MARK: ImgurRequestable Protocol
 extension ImgurSearchFactory: ImgurRequestable {
     var urlParameters: [[String : String]]? {
-        return [["":"\(pageNumber ?? 0)"],["q":imgurSearchQuery ?? ""]]
+        return [["":"\(pageNumber ?? 1)"],["q":imgurSearchQuery ?? ""]]
     }
     
-    var header: [String : String]? {
+    var headers: [String : String]? {
         return ["Authorization":"Client-ID 126701cd8332f32"]
     }
     

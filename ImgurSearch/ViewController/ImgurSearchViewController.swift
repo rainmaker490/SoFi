@@ -64,7 +64,7 @@ extension ImgurSearchViewController: UICollectionViewDataSource, UICollectionVie
        }
         
         //if you're 8 images away from the "bottom", get next page
-        if (indexPath.row == 50 * imgurSearchFactory.pageNumber - 8) {
+        if (indexPath.row == imgurSearchFactory.searchResults.count - 8) {
             imgurSearchFactory.getNextPage()
         }
         return imgurCollectionViewCell

@@ -15,7 +15,7 @@ protocol ImgurRequestable {
     var baseURL: String? { get }
     var httpMethod: String { get }
     var urlParameters: [[String : String]]? { get }
-    var header: [String : String]? { get }
+    var headers: [String : String]? { get }
     
     var successCompletionBlock: ImgurableResponseBlock? { get }
     var failureCompletionBlock: ImgurableResponseBlock? { get }
@@ -29,7 +29,7 @@ extension ImgurRequestable {
         return "GET"
     }
     var urlParameters: [[String : String]]? { return nil }
-    var header: [String : String]? { return nil }
+    var headers: [String : String]? { return nil }
     
     func makeRequest() {
         var requestURL = baseURL ?? ""
@@ -48,7 +48,7 @@ extension ImgurRequestable {
         request.httpMethod = httpMethod
         
         //Headers:
-        header?.forEach {
+        headers?.forEach {
             request.addValue($0.value, forHTTPHeaderField: $0.key)
         }
         

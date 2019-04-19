@@ -26,6 +26,12 @@
   * The biggest challenge here was to ensure that if we are in the process of fetching Image data on a background thread, but the cell is no longer on the screen and possible reused, you do not need to update the cell with the Image (just cache it instead).
   * 250 ms debounce -> The timer object helps us with the debounce. 
 
+* FlickrDetailViewController:
+  * This is a detailViewController.
+  * I would suggest that this View Controller be embedded in a Scroll View Controller so that the aspect ratio of the image is honored and the Image is scrollable.
+
 * Other Comments / Logic behind decisions:
   * I decided to use a non-storyboard approach because I wanted to show my understanding of constraints and how they work.
   * Suggested Enhancements: Write a custom SearchBar (in terms of UI).
+  * The DetailVC's Image doesn't have the correct Aspect Ratio, this needs to be corrected.
+  * Observation: Not all Search Results contain a "Title". Most do contain a "Detail"

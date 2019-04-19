@@ -18,6 +18,7 @@
 		F148E597226979D8003545E8 /* FlickrSearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148E596226979D8003545E8 /* FlickrSearchResult.swift */; };
 		F148E59922699517003545E8 /* FlickrSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F148E59822699517003545E8 /* FlickrSearchView.swift */; };
 		F1AA88942269AF130044B86E /* FlickrCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AA88932269AF130044B86E /* FlickrCollectionViewCell.swift */; };
+		F1AA88962269D4C40044B86E /* FlickrDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AA88952269D4C40044B86E /* FlickrDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		F148E596226979D8003545E8 /* FlickrSearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrSearchResult.swift; sourceTree = "<group>"; };
 		F148E59822699517003545E8 /* FlickrSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrSearchView.swift; sourceTree = "<group>"; };
 		F1AA88932269AF130044B86E /* FlickrCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrCollectionViewCell.swift; sourceTree = "<group>"; };
+		F1AA88952269D4C40044B86E /* FlickrDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 			children = (
 				F148E59822699517003545E8 /* FlickrSearchView.swift */,
 				F148E594226962C8003545E8 /* FlickrSearchViewController.swift */,
+				F1AA88952269D4C40044B86E /* FlickrDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1AA88962269D4C40044B86E /* FlickrDetailViewController.swift in Sources */,
 				F148E5912268E1D7003545E8 /* FlickrRequestable.swift in Sources */,
 				F148E59922699517003545E8 /* FlickrSearchView.swift in Sources */,
 				F148E55C2268E0AE003545E8 /* AppDelegate.swift in Sources */,

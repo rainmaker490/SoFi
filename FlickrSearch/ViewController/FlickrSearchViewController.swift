@@ -70,6 +70,15 @@ extension FlickrSearchViewController: UICollectionViewDataSource, UICollectionVi
         return flickrCollectionViewCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let cachedUrl = flickrSearchFactory.searchResults[indexPath.row].link?.absoluteString, let cachedData = flickrSearchFactory.cache[cachedUrl] {
+            let detailVC = FlickrDetailViewController()
+            detailVC.image = UIImage(data: cachedData)
+            detailVC.title = flickrSearchFactory.searchResults[indexPath.row].title ?? "Title not Available"
+            self.navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+    
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 40)
     }

@@ -63,7 +63,8 @@ extension FlickrSearchFactory: FlickrRequestable {
                         }) ?? [])
                         .reduce([FlickrSearchResult]()) {
                             return $0 + ($1.images ?? [])
-                        }.filter {
+                        }
+                        .filter {
                             let assetType = $0.link?.absoluteString.components(separatedBy: ".").last
                             return assetType == "png" || assetType == "jpg"
                         }

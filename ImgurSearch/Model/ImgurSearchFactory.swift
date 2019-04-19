@@ -1,6 +1,6 @@
 //
-//  FlickrSearchFactory.swift
-//  FlickrSearch
+//  ImgurSearchFactory.swift
+//  ImgurSearch
 //
 //  Created by Varun D Patel on 4/18/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
@@ -8,20 +8,20 @@
 
 import Foundation
 
-protocol FlickrSearchable: NSObjectProtocol {
+protocol ImgurSearchable: NSObjectProtocol {
     func newSearchResultsAvailable()
 }
 
-class FlickrSearchFactory: NSObject {
+class ImgurSearchFactory: NSObject {
     var cache = [String:Data]() //An extremely light weight cache
-    var searchResults = [FlickrSearchResult]() {
+    var searchResults = [ImgurSearchResult]() {
         didSet {
             delegate?.newSearchResultsAvailable()
         }
     }
-    var flickrSearchQuery:String? {
+    var imgurSearchQuery:String? {
         willSet {
-            if let newValue = newValue, newValue != flickrSearchQuery {
+            if let newValue = newValue, newValue != imgurSearchQuery {
                 pageNumber = 0
                 searchResults.removeAll()
                 delegate?.newSearchResultsAvailable()
@@ -33,7 +33,7 @@ class FlickrSearchFactory: NSObject {
             getNextPage()
         }
     }
-    weak open var delegate: FlickrSearchable?
+    weak open var delegate: ImgurSearchable?
     private(set) var pageNumber: Int!
     
     func getNextPage() {
@@ -42,26 +42,26 @@ class FlickrSearchFactory: NSObject {
     }
 }
 
-//MARK: FlickrRequestable Protocol
-extension FlickrSearchFactory: FlickrRequestable {
+//MARK: ImgurRequestable Protocol
+extension ImgurSearchFactory: ImgurRequestable {
     var urlParameters: [[String : String]]? {
-        return [["":"\(pageNumber ?? 0)"],["q":flickrSearchQuery ?? ""]]
+        return [["":"\(pageNumber ?? 0)"],["q":imgurSearchQuery ?? ""]]
     }
     
     var header: [String : String]? {
         return ["Authorization":"Client-ID 126701cd8332f32"]
     }
     
-    var successCompletionBlock: FlickrableResponseBlock? {
+    var successCompletionBlock: ImgurableResponseBlock? {
         get {
             let successCompletionBlock: ([String:AnyObject]?) -> Void = {
                 let searchResults = $0?["data"] as? [AnyObject]
                 self.searchResults =
                     self.searchResults + (searchResults?
-                        .map({ (flickrSearchResult) -> FlickrSearchResult in
-                            return FlickrSearchResult(withDictionary: flickrSearchResult as! [String : AnyObject])
+                        .map({ (imgurSearchResult) -> ImgurSearchResult in
+                            return ImgurSearchResult(withDictionary: imgurSearchResult as! [String : AnyObject])
                         }) ?? [])
-                        .reduce([FlickrSearchResult]()) {
+                        .reduce([ImgurSearchResult]()) {
                             return $0 + ($1.images ?? [])
                         }
                         .filter {
@@ -73,7 +73,7 @@ extension FlickrSearchFactory: FlickrRequestable {
             }
     }
     
-    var failureCompletionBlock: FlickrableResponseBlock? {
+    var failureCompletionBlock: ImgurableResponseBlock? {
         get {
             //TODO: Failure Case
             //Log to something like Crashlytics?

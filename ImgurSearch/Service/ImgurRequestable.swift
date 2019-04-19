@@ -1,6 +1,6 @@
 //
-//  FlickrRequestable.swift
-//  FlickrSearch
+//  ImgurRequestable.swift
+//  ImgurSearch
 //
 //  Created by Varun D Patel on 4/19/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
@@ -8,20 +8,20 @@
 
 import Foundation
 
-let FLICKR_SERVICE_TIMEOUT = 10.0
-typealias FlickrableResponseBlock = ([String:AnyObject]?) -> Void
+let IMGUR_SERVICE_TIMEOUT = 10.0
+typealias ImgurableResponseBlock = ([String:AnyObject]?) -> Void
 
-protocol FlickrRequestable {
+protocol ImgurRequestable {
     var baseURL: String? { get }
     var httpMethod: String { get }
     var urlParameters: [[String : String]]? { get }
     var header: [String : String]? { get }
     
-    var successCompletionBlock: FlickrableResponseBlock? { get }
-    var failureCompletionBlock: FlickrableResponseBlock? { get }
+    var successCompletionBlock: ImgurableResponseBlock? { get }
+    var failureCompletionBlock: ImgurableResponseBlock? { get }
 }
 
-extension FlickrRequestable {
+extension ImgurRequestable {
     var baseURL: String? {
         return "​https://api.imgur.com/3/gallery/search/time"
     }
@@ -53,7 +53,7 @@ extension FlickrRequestable {
         }
         
         let sessionConfiguration = URLSessionConfiguration.default
-        sessionConfiguration.timeoutIntervalForRequest = FLICKR_SERVICE_TIMEOUT
+        sessionConfiguration.timeoutIntervalForRequest = IMGUR_SERVICE_TIMEOUT
         let session = URLSession(configuration: sessionConfiguration, delegate: nil, delegateQueue: nil)
         
         //Data Task:

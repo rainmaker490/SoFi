@@ -1,15 +1,15 @@
 //
-//  FlickrSearchTests.swift
-//  FlickrSearchTests
+//  ImgurSearchTests.swift
+//  ImgurSearchTests
 //
 //  Created by Varun D Patel on 4/19/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
 //
 
 import XCTest
-@testable import FlickrSearch
+@testable import ImgurSearch
 
-class FlickrSearchTests: XCTestCase {
+class ImgurSearchTests: XCTestCase {
 
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.

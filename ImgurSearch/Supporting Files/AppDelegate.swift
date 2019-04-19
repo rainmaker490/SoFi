@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  FlickrSearch
+//  ImgurSearch
 //
 //  Created by Varun D Patel on 4/19/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        let initialViewController = FlickrSearchViewController()
+        let initialViewController = ImgurSearchViewController()
         window!.rootViewController = UINavigationController(rootViewController: initialViewController)
         window!.makeKeyAndVisible()
         return true

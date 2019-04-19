@@ -1,6 +1,6 @@
 //
-//  FlickrSearchView.swift
-//  FlickrSearch
+//  ImgurSearchView.swift
+//  ImgurSearch
 //
 //  Created by Varun D Patel on 4/18/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FlickrSearchView: UIView {
+class ImgurSearchView: UIView {
     var collectionView: UICollectionView!
     lazy var searchBar : UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Flickr Search"
+        searchBar.placeholder = "Imgur Search"
         searchBar.tintColor = .white
         searchBar.barStyle = .default
         searchBar.sizeToFit()
@@ -21,14 +21,14 @@ class FlickrSearchView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupFlickrSearchView()
+        setupImgurSearchView()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    private func setupFlickrSearchView() {
+    private func setupImgurSearchView() {
         self.backgroundColor = .white
         
         let layout = UICollectionViewFlowLayout()
@@ -42,7 +42,7 @@ class FlickrSearchView: UIView {
         collectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         
         collectionView.backgroundColor = .white
-        collectionView.register(FlickrCollectionViewCell.self, forCellWithReuseIdentifier: "FlickrCollectionViewCell")
+        collectionView.register(ImgurCollectionViewCell.self, forCellWithReuseIdentifier: "ImgurCollectionViewCell")
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderSearchCell")
     }
 }

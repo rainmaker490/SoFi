@@ -1,6 +1,6 @@
 //
-//  FlickrDetailViewController.swift
-//  FlickrSearch
+//  ImgurDetailViewController.swift
+//  ImgurSearch
 //
 //  Created by Varun D Patel on 4/19/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class FlickrDetailViewController: UIViewController {
+class ImgurDetailViewController: UIViewController {
     var image: UIImage?
     private var imageView: UIImageView!
     
     override func viewDidLoad() {
-        self.setupFlickrDetailViewController()
+        self.setupImgurDetailViewController()
         imageView.image = image
     }
     
-    private func setupFlickrDetailViewController() {
+    private func setupImgurDetailViewController() {
         imageView = UIImageView(frame: .zero)
         imageView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(imageView)

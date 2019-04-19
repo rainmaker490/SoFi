@@ -1,6 +1,6 @@
 //
-//  FlickrCollectionViewCell.swift
-//  FlickrSearch
+//  ImgurCollectionViewCell.swift
+//  ImgurSearch
 //
 //  Created by Varun D Patel on 4/19/19.
 //  Copyright © 2019 Varun Patel. All rights reserved.
@@ -8,18 +8,18 @@
 
 import UIKit
 
-class FlickrCollectionViewCell: UICollectionViewCell {
-    var flickrImage: UIImage? {
+class ImgurCollectionViewCell: UICollectionViewCell {
+    var imgurImage: UIImage? {
         didSet {
-            if let image = flickrImage {
+            if let image = imgurImage {
                 imageView.image = image
             }
         }
     }
     
-    var flickrImageTitle: String? {
+    var imgurImageTitle: String? {
         didSet {
-            titleLabel.text = flickrImageTitle
+            titleLabel.text = imgurImageTitle
         }
     }
     
@@ -28,7 +28,7 @@ class FlickrCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupFlickrTableViewCell()
+        setupImgurTableViewCell()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,11 +36,11 @@ class FlickrCollectionViewCell: UICollectionViewCell {
     }
     
     override func prepareForReuse() {
-        flickrImageTitle = ""
-        flickrImage = UIImage(named: "placeholder")
+        imgurImageTitle = ""
+        imgurImage = UIImage(named: "placeholder")
     }
     
-    private func setupFlickrTableViewCell() {
+    private func setupImgurTableViewCell() {
         self.backgroundColor = .white
         setupImageView()
         setupTitleLabel()

@@ -95,7 +95,8 @@ extension FlickrSearchViewController: UISearchBarDelegate {
     
     @objc func performFlickrSearch(timer: Timer) {
         let userInfo = timer.userInfo as! [String:String]
-        flickrSearchFactory.flickrSearchQuery = userInfo["query"]!
-        flickrSearchFactory.getNextPage()
+        if let query = userInfo["query"], !query.isEmpty {
+            flickrSearchFactory.flickrSearchQuery = query
+        }
     }
 }

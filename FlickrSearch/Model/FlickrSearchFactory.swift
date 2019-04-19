@@ -27,7 +27,10 @@ class FlickrSearchFactory: NSObject {
                 delegate?.newSearchResultsAvailable()
                 cache.removeAll()
             }
-            
+        }
+        
+        didSet {
+            getNextPage()
         }
     }
     weak open var delegate: FlickrSearchable?

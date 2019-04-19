@@ -28,3 +28,4 @@
 
 * Other Comments / Logic behind decisions:
   * I decided to use a non-storyboard approach because I wanted to show my understanding of constraints and how they work.
+  * Suggested Enhancements: Write a custom SearchBar (in terms of UI).

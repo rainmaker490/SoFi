@@ -22,7 +22,7 @@ class ImgurSearchFactory: NSObject {
     var imgurSearchQuery:String? {
         willSet {
             if let newValue = newValue, newValue != imgurSearchQuery {
-                pageNumber = 0
+                pageNumber = 1
                 searchResults.removeAll()
                 cache.removeAll()
                 delegate?.newSearchResultsAvailable()

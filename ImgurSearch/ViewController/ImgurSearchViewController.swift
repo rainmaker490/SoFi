@@ -52,8 +52,8 @@ extension ImgurSearchViewController: UICollectionViewDataSource, UICollectionVie
             DispatchQueue.global(qos: .userInitiated).async {
                 if let imgurSearchLink = self.imgurSearchFactory.searchResults[indexPath.row].link {
                     let imageData = try? Data(contentsOf: imgurSearchLink)
-                    self.imgurSearchFactory.cache[imgurSearchLink.absoluteString] = imageData
                     DispatchQueue.main.async {
+                        self.imgurSearchFactory.cache[imgurSearchLink.absoluteString] = imageData
                         if let cell = collectionView.cellForItem(at: indexPath), let imageData = imageData {
                             (cell as! ImgurCollectionViewCell).imgurImage = UIImage(data: imageData)
                             (cell as! ImgurCollectionViewCell).imgurImageTitle = self.imgurSearchFactory.searchResults[indexPath.row].description

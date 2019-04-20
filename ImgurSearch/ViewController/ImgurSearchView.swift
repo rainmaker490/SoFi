@@ -33,7 +33,7 @@ class ImgurSearchView: UIView {
         
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.width)
-        collectionView = UICollectionView(frame: UIScreen.main.bounds, collectionViewLayout: layout)
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
